@@ -33,11 +33,48 @@ return keywords_final[:5]
 
 ### Linking Hierachy 
 
+Linking requires the list of keywords to then create such a hierachy.
+
+The output of the main function is a list, 
 
 
-## Preprocessing extraction text
+def formatting_hierachy(keyword):
+    output = get_hierachy(keyword)
+    hierachy = []
+    counter = len(output)
+    counter_up = 0
+    for word in list(reversed(output)):
+        try:
+            if word == hierachy[counter_up]:
+                hierachy.pop(counter_up)
+        except:
+            None
+        hierachy.append(word)
 
-youtube_to_text(url) --> Code to extract text from youtube video transcription
+        counter = counter - 1
+    return hierachy
+
+### Topic extraction
+
+file extracts the topic via using googles langaguge V1 module. 
+
+input the text
+and the final function as below.
+
+def topic_slice(classifier_result):
+    """Output: Lowest topic in lowercase"""
+    list_topics = list(classifier_result.keys())
+    topic_list = []
+
+    for i in list_topics:
+        topic_list.append(i.split("/"))
+
+    final_list = []
+    for n in topic_list:
+        final_list.append(n[-1].lower())
+
+    return final_list
+
 
 ## Continued work
 
