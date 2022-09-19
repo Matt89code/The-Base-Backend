@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Turning infomration in to knowledge
+Turning information in to knowledge
 
 A programme which allows user to import a text, .jpeg/ .pdf / .docx to extract keywords, a topic and a summary of their text! 
 
